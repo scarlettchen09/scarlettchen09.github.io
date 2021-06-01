@@ -1,0 +1,45 @@
+body {
+    background-color: dimgray;
+}
+.button-grid {
+    display:flex;
+    flex-direction:row;
+}
+
+.column {
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+}
+
+.note {
+    height:50px;
+    width:50px;
+    margin: 2px;
+    border: 2px solid #ccc;
+}
+.pressed {
+    background-color: aqua;
+}
+
+.unpressed {
+    background-color:white;
+}
+
+.column {
+    background-color: white;
+}
+.cur-col {
+    background-color: lightseagreen;
+}
+
+
+.synth-info {
+    height: 200px;
+    width: 200px;
+    background-color: hotpink;
+}
+.adsr {
+    display:flex;
+    flex-direction:column;
+}
