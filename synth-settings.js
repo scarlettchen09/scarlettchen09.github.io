@@ -1,14 +1,6 @@
 
 function makeOptionsDiv() {
     let synth = new Tone.PolySynth(Tone.AMSynth).toDestination();
-    //synth.disconnect();
-    // synth.dispose();
-    // synth = null;
-    // synth = new Tone.PolySynth(Tone.PluckSynth).toDestination();
-    synth.set( {
-        voice: Tone.MetalSynth
-
-    });
 
     synth.set ({
         envelope: {
@@ -22,7 +14,7 @@ function makeOptionsDiv() {
     let synthOptions = document.createElement("div");
     synthOptions.innerHTML = "<b>synth settings:</b>";
     synthOptions.className = "synth-info";
-    document.body.appendChild(synthOptions);
+    document.getElementById("settings-div").appendChild(synthOptions);
 
 
     makeADSRSliders(synthOptions, synth);
@@ -32,7 +24,7 @@ function makeOptionsDiv() {
 
 function makeADSRSliders(synthOptions, synth) {
     let ADSRdiv = document.createElement("div");
-    ADSRdiv.className = "adsr";
+    ADSRdiv.id = "adsr";
     synthOptions.appendChild(ADSRdiv);
     let attackLabel = document.createElement("label");
     attackLabel.innerHTML = "attack: ";
@@ -48,10 +40,10 @@ function makeADSRSliders(synthOptions, synth) {
 
     let attackSlider = document.createElement("input");
     attackSlider.type = "range";
-    attackSlider.min = "0";
+    attackSlider.min = "0.1";
     attackSlider.max = "5";
     attackSlider.step= "0.1";
-    attackSlider.value = "0";
+    attackSlider.value = "0.1";
     ADSRdiv.appendChild(attackSlider);
     attackLabel.innerHTML += attackSlider.value;
     attackSlider.addEventListener('change', (e) => {
@@ -104,9 +96,9 @@ function makeADSRSliders(synthOptions, synth) {
     releaseSlider.step= "0.1";
     releaseSlider.value = ".3"
     ADSRdiv.appendChild(releaseSlider);
-    releaseLabel.innerHTML += releaseSlider.value;
+    releaseLabel.innerHTML += releaseSlider.value ;
     releaseSlider.addEventListener('change', (e) => {
-        releaseLabel.innerHTML = "release: " + e.target.value;
+        releaseLabel.innerHTML = "release: " + e.target.value ;
         synth.set ({
             envelope: {
                 release: e.target.value
