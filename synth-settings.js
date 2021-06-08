@@ -14,7 +14,7 @@ function makeOptionsDiv() {
     let synthOptions = document.createElement("div");
     synthOptions.innerHTML = "<b>synth settings:</b>";
     synthOptions.className = "synth-info";
-    document.getElementById("settings-div").appendChild(synthOptions);
+    document.body.appendChild(synthOptions);
 
 
     makeADSRSliders(synthOptions, synth);
